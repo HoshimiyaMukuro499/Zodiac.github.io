@@ -1,28 +1,38 @@
-# Zodiac
-上传作业用
+```markdown
+<div align="center">
 
-欢迎关注：微信公众号 “星宫荧的音乐小站”
+# 🌌 Zodiac.github.io
 
-==春天快乐==
+✨ **Welcome to my digital space** ✨
 
-![Language](https://img.shields.io/github/languages/top/HoshimiyaMukuro499/Zodiac.github.io?color=blue)
+<br>
 
-![Test](https://github-readme-stats.deno.dev/api/top-langs/?username=anuraghazad&layout=compact)
+### 🛠 Tech Stack & Tools
+<!-- 使用 Shields.io 徽标，美观且永不报错 -->
+<img src="https://img.shields.io/badge/Language-HTML5-orange?style=for-the-badge&logo=html5">
+<img src="https://img.shields.io/badge/Language-CSS3-blue?style=for-the-badge&logo=css3">
+<img src="https://img.shields.io/badge/Language-JavaScript-yellow?style=for-the-badge&logo=javascript">
+<img src="https://img.shields.io/badge/Framework-Vue.js-green?style=for-the-badge&logo=vue.js">
 
-### 常用网站：
+<br>
 
-[B站](https://www.bilibili.com/)
+### 📜 About
+上传作业用。
 
-[数据结构与算法讲义及作业](https://github.com/GMyhf/2026spring-cs201/)
+欢迎关注我的微信公众号：**“星宫荧的音乐小站”**
 
-[洛谷](https://www.luogu.com.cn/)
+<br>
 
-[力扣](https://leetcode.cn/)
+### 📊 Repository Stats
+<!-- 仓库基础信息 -->
+<img src="https://img.shields.io/github/stars/HoshimiyaMukuro499/Zodiac.github.io?style=social">
+<img src="https://img.shields.io/github/forks/HoshimiyaMukuro499/Zodiac.github.io?style=social">
+<img src="https://img.shields.io/github/last-commit/HoshimiyaMukuro499/Zodiac.github.io?style=plastic">
 
-[OpenJudge CS101题库](http://cs101.openjudge.cn/)
+<br>
 
-[网易云音乐](https://music.163.com/)
+---
+*Built with passion by [HoshimiyaMukuro499](https://github.com/HoshimiyaMukuro499)*
 
-[clab](https://clab.pku.edu.cn/base/overview)
-
-[PubMed](https://pubmed.ncbi.nlm.nih.gov/)
+</div>
+```
