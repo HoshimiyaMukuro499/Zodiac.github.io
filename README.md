@@ -3,6 +3,13 @@
 
 欢迎关注：微信公众号 “星宫荧的音乐小站”
 
+### 📊 GitHub Stats
+![HoshimiyaMukuro499's stats](https://github-readme-stats.vercel.app/api/top-langs/?username=HoshimiyaMukuro499&layout=compact&theme=radical)
+
+![HoshimiyaMukuro499's GitHub stats](https://github-readme-stats.vercel.app/api?username=HoshimiyaMukuro499&show_icons=true&theme=radical)
+
+![Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=HoshimiyaMukuro499&theme=react-dark)
+
 
 ==春天快乐==
 
