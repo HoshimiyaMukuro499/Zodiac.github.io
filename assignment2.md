@@ -1,7 +1,7 @@
 # Assignment #2: 位运算、前缀和、树状数组、归并排序 & 状态压缩
 
 *Updated 2026-03-10 11:00 GMT+8*
- *Compiled by <mark>肖云天、生命科学学院</mark> (2026 Spring)*
+ *Compiled by <mark>***、生命科学学院</mark> (2026 Spring)*
 <font color='pink'>粉色代表这道题来自于已知的知识点但没能想出正确的思路,查看了题解</font>
 
 <font color='skyblue'>天蓝色代表这道题包含了之前没有掌握的语法/数据结构/算法,有迹可循</font>
