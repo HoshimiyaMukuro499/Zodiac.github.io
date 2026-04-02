@@ -278,158 +278,146 @@ dfs, matrices, http://cs101.openjudge.cn/pctbook/T20052/
 代码：
 我的代码(最后仍旧WA)
 ```python
-from collections import deque  
-  
-m, n, p = map(int, input().strip().split())  
-board = []  
-for _ in range(m):  
-    board.append(list(map(int, input().strip().split())))  
-max_point = max(max(row) for row in board)  
-  
-q = deque([(board, 0)])  
-mazes = []  
-  
-  
-def move(oldboard, direction):  
-    board = [oldboard[i][:] for i in range(m)]  
-  
-    changed = False  
-    if direction == 'left':  
-        changed = False  
-        while True:  
-            c = False  
-            for i in range(m):  
-                for j in range(n - 1, 0, -1):  
-                    if board[i][j] > 0 and board[i][j - 1] == 0:  
-                        board[i][j], board[i][j - 1] = 0, board[i][j]  
-                        c = True  
-                        changed = True  
-            if not c:  
-                break  
-        for i in range(m):  
-            for j in range(n - 1):  
-                if board[i][j] == board[i][j + 1]:  
-                    board[i][j] *= 2  
-                    board[i][j + 1] = 0  
-                    changed = True  
-  
-        while True:  
-            c = False  
-            for i in range(m):  
-                for j in range(n - 1, 0, -1):  
-                    if board[i][j] > 0 and board[i][j - 1] == 0:  
-                        board[i][j], board[i][j - 1] = 0, board[i][j]  
-                        c = True  
-                        changed = True  
-            if not c:  
-                break  
-  
-  
-    elif direction == 'right':  
-        changed = False  
-        while True:  
-            c = False  
-            for i in range(m):  
-                for j in range(n - 1):  
-                    if board[i][j] > 0 and board[i][j + 1] == 0:  
-                        board[i][j], board[i][j + 1] = 0, board[i][j]  
-                        c = True  
-                        changed = True  
-            if not c:  
-                break  
-        for i in range(m):  
-            for j in range(n - 1, 0, -1):  
-                if board[i][j - 1] == board[i][j]:  
-                    board[i][j] *= 2  
-                    board[i][j - 1] = 0  
-                    changed = True  
-  
-        while True:  
-            c = False  
-            for i in range(m):  
-                for j in range(n - 1):  
-                    if board[i][j] > 0 and board[i][j + 1] == 0:  
-                        board[i][j], board[i][j + 1] = 0, board[i][j]  
-                        c = True  
-                        changed = True  
-            if not c:  
-                break  
-  
-  
-    elif direction == 'up':  
-        changed = False  
-        while True:  
-            c = False  
-            for i in range(m - 1, 0, -1):  
-                for j in range(n):  
-                    if board[i][j] > 0 and board[i - 1][j] == 0:  
-                        board[i][j], board[i - 1][j] = 0, board[i][j]  
-                        c = True  
-                        changed = True  
-            if not c:  
-                break  
-        for i in range(m - 1):  
-            for j in range(n):  
-                if board[i][j] == board[i + 1][j]:  
-                    board[i][j] *= 2  
-                    board[i + 1][j] = 0  
-                    changed = True  
-                    #inner_max_point = max(inner_max_point, board[i][j])  
-        while True:  
-            c = False  
-            for i in range(m - 1, 0, -1):  
-                for j in range(n):  
-                    if board[i][j] > 0 and board[i - 1][j] == 0:  
-                        board[i][j], board[i - 1][j] = 0, board[i][j]  
-                        c = True  
-                        changed = True  
-            if not c:  
-                break  
-  
-  
-    elif direction == 'down':  
-        changed = False  
-        while True:  
-            c = False  
-            for i in range(m - 1):  
-                for j in range(n):  
-                    if board[i][j] > 0 and board[i + 1][j] == 0:  
-                        board[i][j], board[i + 1][j] = 0, board[i][j]  
-                        c = True  
-                        changed = True  
-            if not c:  
-                break  
-        for i in range(m - 1, 0, -1):  
-            for j in range(n):  
-                if board[i][j] == board[i - 1][j]:  
-                    board[i][j] *= 2  
-                    board[i - 1][j] = 0  
-                    changed = True  
-                    #inner_max_point = max(inner_max_point, board[i][j])  
-        while True:  
-            c = False  
-            for i in range(m - 1):  
-                for j in range(n):  
-                    if board[i][j] > 0 and board[i + 1][j] == 0:  
-                        board[i][j], board[i + 1][j] = 0, board[i][j]  
-                        c = True  
-                        changed = True  
-            if not c:  
-                break  
-    max_val = max(max(row) for row in board)  
-    return (changed, max_val, board)  
-  
-  
-while q:  
-    ls = q.popleft()  
-    board, step = ls[0], ls[1]  
-    for direction in ['left', 'right', 'up', 'down']:  
-        changed, new_max_point, res_board = move(board, direction)  
-        max_point = max(max_point, new_max_point)  
-        if changed and step < p:  
-            q.append((res_board, step + 1))  
-  
-print(max_point)
+from collections import deque
+
+m, n, p = map(int, input().strip().split())
+board = []
+for _ in range(m):
+    board.append(list(map(int, input().strip().split())))
+max_point = max(max(row) for row in board)
+
+q = deque([(board, 0)])
+
+def move(oldboard, direction):
+    # 首先创建一个深拷贝避免修改原数组
+    board = [oldboard[i][:] for i in range(m)]
+    changed = False
+    
+    if direction == 'left':
+        for i in range(m):
+            # 把非零元素移动到最左边方便计算
+            temp_row = [x for x in board[i] if x != 0]
+            # 创建一个新表便于存储合并后的结果
+            new_row = []
+            j = 0
+            while j < len(temp_row):
+                if j + 1 < len(temp_row) and temp_row[j] == temp_row[j + 1]:
+                    new_row.append(temp_row[j] * 2)
+                    j += 2
+                else:
+                    new_row.append(temp_row[j])
+                    j += 1
+            # 补全 0 至原表长度
+            while len(new_row) < n:
+                new_row.append(0)
+            # 检查是否更改并更新标志changed
+            if board[i] != new_row:
+                changed = True
+                board[i] = new_row
+    
+    elif direction == 'right':
+        for i in range(m):
+            # 把非零元素移动到最右边方便计算
+            temp_row = [x for x in board[i] if x != 0]
+            # 创建一个新表便于存储合并后的结果
+            new_row = []
+            j = len(temp_row) - 1
+            while j >= 0:
+                if j - 1 >= 0 and temp_row[j] == temp_row[j - 1]:
+                    new_row.insert(0, temp_row[j] * 2)
+                    j -= 2
+                else:
+                    new_row.insert(0, temp_row[j])
+                    j -= 1
+            # 补全 0 至原表长度
+            while len(new_row) < n:
+                new_row.insert(0, 0)
+            # 检查是否更改并更新标志changed
+            if board[i] != new_row:
+                changed = True
+                board[i] = new_row
+    
+    elif direction == 'up':
+        for j in range(n):
+            # 提取当前列
+            col = [board[i][j] for i in range(m)]
+            # 把非零元素移动到最上面方便计算
+            temp_col = [x for x in col if x != 0]
+            # 创建一个新表便于存储合并后的结果
+            new_col = []
+            k = 0
+            while k < len(temp_col):
+                if k + 1 < len(temp_col) and temp_col[k] == temp_col[k + 1]:
+                    new_col.append(temp_col[k] * 2)
+                    k += 2
+                else:
+                    new_col.append(temp_col[k])
+                    k += 1
+            # Pad with zeros to maintain size
+            while len(new_col) < m:
+                new_col.append(0)
+            # 检查是否更改并更新标志changed
+            orig_col = [board[i][j] for i in range(m)]
+            if orig_col != new_col:
+                changed = True
+                for i in range(m):
+                    board[i][j] = new_col[i]
+    
+    elif direction == 'down':
+        for j in range(n):
+            # 提取当前列
+            col = [board[i][j] for i in range(m)]
+            # 把非零元素移动到最下面方便计算
+            temp_col = [x for x in col if x != 0]
+            # 创建一个新表便于存储合并后的结果
+            new_col = []
+            k = len(temp_col) - 1
+            while k >= 0:
+                if k - 1 >= 0 and temp_col[k] == temp_col[k - 1]:
+                    new_col.insert(0, temp_col[k] * 2)
+                    k -= 2
+                else:
+                    new_col.insert(0, temp_col[k])
+                    k -= 1
+            # 补全 0 至原表长度
+            while len(new_col) < m:
+                new_col.insert(0, 0)
+            # 检查是否更改并更新标志changed
+            orig_col = [board[i][j] for i in range(m)]
+            if orig_col != new_col:
+                changed = True
+                for i in range(m):
+                    board[i][j] = new_col[i]
+    
+    return board, changed
+
+# BFS实现
+visited = set()
+max_value = max_point
+
+while q:
+    current_board, steps = q.popleft()
+    
+    # 转换为元组便于哈希
+    board_tuple = tuple(tuple(row) for row in current_board)
+    if board_tuple in visited or steps > p:
+        continue
+    visited.add(board_tuple)
+    
+    # 更新最大值
+    current_max = max(max(row) for row in current_board)
+    max_value = max(max_value, current_max)
+    
+    if steps == p:
+        continue
+        
+    # 尝试所有方向移动
+    for direction in ['left', 'right', 'up', 'down']:
+        new_board, changed = move(current_board, direction)
+        if changed:
+            q.append((new_board, steps + 1))
+
+print(max_value)
 ```
 AI代码
 ```python
